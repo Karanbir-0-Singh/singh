@@ -1,0 +1,11 @@
+# print, age name, color
+def greeting(name, age = "21", color = "red"):
+    print("hello " + name  + " you will be : "+ str(age + 1) + "years old on next birthday ")
+    print(f"hello {name.capitalize()}, you will be : {age+1} years old on next birthday")
+    print(f"we hear you like the color {color.lower()}")
+
+
+name = input("what is your name?")
+age = int(input("what is your age: "))
+color = input("enter your favoritr color: ")
+greeting(name, int(age), color)
