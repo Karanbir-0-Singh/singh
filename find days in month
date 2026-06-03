@@ -1,0 +1,10 @@
+def num_days(month):
+    days = 30
+    if month in ['jan', 'mar', 'may', 'jul', 'aug', 'oct', 'dec']:
+        days = 31
+    elif month == 'feb':
+        days =28
+    print(f"number of days in",month,"is",days)
+
+
+num_days('aug')
