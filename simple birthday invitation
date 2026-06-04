@@ -1,0 +1,12 @@
+names = ["karanbir","ankit", "amandeep", "rishu"]
+names1 = ["balbir", "himanshu", "shillon", "lalit"]
+msg = "you are invited to birthday party on monday."
+#names.extend(names1)
+names += names1
+for index in range(2):
+    names.append(input("enter a name: "))
+
+for name in names:
+    #msg1 = f"{name.title()} ! {msg}"
+    msg1 = name.title() + "! " + msg
+    print(msg1)
