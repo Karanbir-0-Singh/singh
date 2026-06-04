@@ -1,0 +1,42 @@
+# ☕ Coffee Order Queue Challenge
+# 1. Set up two variables: one for total price, one for drink count
+# 2. Start a while True loop
+# 3. Ask for the customer's name
+# 4. If the name is "done", break the loop
+# 5. Ask for their drink order
+# 6. If it's "latte", add 3.50 to total and +1 to drink count
+#    If it's "americano", add 3.00 to total and +1 to drink count
+#    If it's "espresso", add 2.50 to total and +1 to drink count
+# 7. If it's not one of those drinks, print a warning and continue
+# 8. After the loop, print total number of drinks and total price
+
+total_price = 0
+drinks_had = 0
+
+while True:
+    name = input("enter customer name (or type 'done' to finish): ")
+
+    if name == "done":
+        break
+
+    drink = input(f"enter order for {name}, (chai, coffee, cold-drink): ")
+
+    if drink == "coffee":
+        total_price += 3.50
+        drinks_had +=1
+    elif drink == "chai":
+        total_price += 3
+        drinks_had +=1
+    elif drink == "cold-drink":
+        total_price += 2.50
+        drinks_had +=1
+    else:
+        print("drink not available")
+        continue
+
+
+
+print("order confirmed..")
+print(f"total drink ordered  are : {drinks_had}")
+print(f" total bill is: {total_price}")
+
