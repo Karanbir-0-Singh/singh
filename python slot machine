@@ -1,0 +1,79 @@
+# python slot machine:
+
+import random
+
+def spin_row():
+    symbols = ['🍒', '🍅', '🍊', '🍉', '🍎']
+
+    return [random.choice(symbols) for _ in range(3)]
+
+def print_row(row):
+    print("**************")
+    print(" | ".join(row))
+    print("**************")
+
+def get_payment(row, bet):
+    if row[0] == row[1] == row[2]:
+        if row[0] == '🍎':
+            return bet * 2
+        elif row[0] == '🍉':
+            return bet * 4
+        elif row[0] == '🍊':
+            return bet * 6
+        elif row[0] == '🍅':
+            return bet * 8
+        elif row[0] == '🍒':
+            return bet * 10
+    return 0
+
+def main():
+    balance = 100
+
+    print("***********************")
+    print("Welcome to slot machine")
+    print("Symbols: 🍅 🍊 🍉 🍎 🍒")
+    print("***********************")
+
+    while balance > 0:
+        print(f"your current balance: ${balance}")
+
+        bet = input("place your bet amount: ")
+
+        if not bet.isdigit():
+            print("enter valid number!!")
+            continue
+
+        bet = int(bet)
+
+        if bet > balance:
+            print("Nigga!! you got low balance")
+            continue
+
+        if bet <= 0:
+            print("enter right amount")
+            continue
+
+        balance -= bet
+
+        row = spin_row()
+        print("spinning..\n")
+        print_row(row)
+
+        payout = get_payment(row, bet)
+        if payout > 0:
+            print(f"you won ${payout}")
+        else:
+            print("you loss")
+
+        balance += payout
+
+        play_again = input("do you want to play agian (Y/N)").upper()
+        if play_again != "Y":
+            break
+
+    print("*******************************************")
+    print(f"Game Over!! you'r balance is: ${balance}")
+    print("*******************************************")
+
+
+main()
