@@ -1,0 +1,35 @@
+# encryption program
+
+import random
+import string
+
+chars = string.punctuation + string.digits +string.ascii_letters + " "
+chars = list(chars)
+key = chars.copy()
+
+random.shuffle(key)
+
+# print(chars)
+# print(key)
+
+#ENCRYPT
+plain_text =input("enter a msg to encrypt: ")
+secret_text = ""
+
+for letter in plain_text:
+    index = chars.index(letter)
+    secret_text += key[index]
+
+print(f"original msg: {plain_text}")
+print(f"enrypted msg: {secret_text}")
+
+#DECRYPT
+secret_text =input("enter a msg to decrypt: ")
+plain_text = ""
+
+for letter in secret_text:
+    index = key.index(letter)
+    plain_text += chars[index]
+
+print(f"enrypted msg: {secret_text}")
+print(f"original msg: {plain_text}")
